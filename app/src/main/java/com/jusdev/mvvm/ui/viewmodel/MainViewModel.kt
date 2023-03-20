@@ -31,8 +31,6 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
             val response = repository.pushPots(
                 post
             )
-
-
             mypushResponse.value = response
         }
     }

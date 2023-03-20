@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 var gson = Gson()
                 var myClass = gson?.fromJson(prettyJson, ResponseLogin::class.java)
-                //val myClass: ResponseLogin = Gson().fromJson(responseBody, ResponseLogin::class.java)
+                //val _myClass: ResponseLogin = Gson().fromJson(responseBody, ResponseLogin::class.java)
 
                 println("result: " + myClass?.content?.empresas)
             }catch (e :Exception){

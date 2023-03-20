@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ui.Reports.StatementFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="#0048FF"
+        android:textSize="35sp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Bton1"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="25dp"
+        android:hint="Fagment to activity"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="88dp"
+
+        >
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Bton2"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="25dp"
+        android:hint="Fagment to fragment"
+        android:textColorHint="@color/black"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="158dp"
+
+        >
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+</FrameLayout>

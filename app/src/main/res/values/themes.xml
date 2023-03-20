@@ -13,4 +13,21 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">#fff</item>
+
+    </style>
+
+    <style name="Theme.Mvvm.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Mvvm.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Mvvm.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 </resources>

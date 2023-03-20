@@ -35,3 +35,18 @@ interface API {
         @Field("msg") msg: String,
     ): Response<ResponseLogin>
 }
+/*
+ @FormUrlEncoded
+    @POST("login/")
+     fun pushPost(
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("platform") platform: String,
+        @Field("version") version: String,
+        @Field("build") build: String,
+        @Field("modelDevice") modelDevice: String,
+        @Field("nameDevice") nameDevice: String,
+        @Field("versionSystem") versionSystem: String,
+        @Field("tokendevice") tokendevice: String
+    ): Response<ResponseBody>
+ */

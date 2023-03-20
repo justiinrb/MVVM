@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title=""
+        android:id="@+id/image"
+        android:icon="@drawable/ic_baseline_broken_image_24"
+        android:iconTint="@color/white"
+        />
+    <item android:title=""
+        android:id="@+id/rotate"
+        android:icon="@drawable/ic_baseline_rotate_right_24"/>
+    <item android:title=""
+        android:id="@+id/receipt"
+        android:icon="@drawable/ic_baseline_receipt_24"/>
+</menu>

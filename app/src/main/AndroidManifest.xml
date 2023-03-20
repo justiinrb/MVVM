@@ -15,18 +15,46 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".LendingActivity"
+
+            android:exported="false"
+            android:label="@string/title_activity_lending"
+            android:theme="@style/Theme.Mvvm.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.ui.documents.DocumActivity"
+            android:exported="false"
+            android:label="@string/title_activity_docum"
+            android:theme="@style/Theme.Mvvm.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.ui.Idn"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!--
+        <activity
+            android:name=".ui.ui.LoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.title_activity_login"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
+        -->
         <activity
-            android:name=".ui.ui.MainActivity"
+            android:name=".ui.ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

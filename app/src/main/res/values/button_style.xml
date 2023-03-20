@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="home_buton">
+    <item name="cornerSize">20%</item>
+</style>
+    <style name="edit_buton">
+        <item name="cornerSize">20%</item>
+    </style>
+    <style name="idn_buton">
+        <item name="cornerSize">20%</item>
+    </style>
+    <style name="nube_buton">
+        <item name="cornerSize">20%</item>
+    </style>
+    <style name="acount_buton">
+        <item name="cornerSize">20%</item>
+    </style>
+
+
+    
+
+
+
+</resources>
