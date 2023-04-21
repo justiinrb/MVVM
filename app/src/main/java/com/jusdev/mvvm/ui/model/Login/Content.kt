@@ -1,6 +1,4 @@
-package com.jusdev.mvvm.ui.model
-
-import com.google.gson.annotations.SerializedName
+package com.jusdev.mvvm.ui.model.Login
 
 data class Content(
 

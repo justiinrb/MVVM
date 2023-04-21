@@ -16,8 +16,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.jusdev.mvvm.R
-import com.jusdev.mvvm.ui.model.PostLogin
-import com.jusdev.mvvm.ui.model.ResponseLogin
+import com.jusdev.mvvm.ui.model.Login.PostLogin
+import com.jusdev.mvvm.ui.model.Login.ResponseLogin
 import com.jusdev.mvvm.ui.repository.RepositoryLogin
 import com.jusdev.mvvm.ui.viewmodel.LoginViewModel
 import com.jusdev.mvvm.ui.viewmodelfactory.LoginViewModelFactory

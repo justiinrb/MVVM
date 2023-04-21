@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jusdev.mvvm.databinding.DocBinding
 import com.jusdev.mvvm.databinding.FragmentHomeBinding
-import com.jusdev.mvvm.ui.ui.documents.DocumActivity
+import com.jusdev.mvvm.ui.ui.LendingActivity
 
 
 class Home : Fragment() {

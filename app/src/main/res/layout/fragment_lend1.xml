@@ -4,17 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/lou"
     android:orientation="vertical"
-    tools:context=".FirstFragment">
+    tools:context=".FirstLendFragment">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+
+
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +55,9 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,11 +65,11 @@
         android:orientation="vertical"
         tools:visibility="visible"
         >
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:id="@+id/Pcard"
             android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:backgroundTint="#050561"
+            android:layout_height="45dp"
+            android:background="@color/lend"
 
             >
 
@@ -71,6 +79,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -84,6 +93,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="230dp"
@@ -100,74 +110,75 @@
             </LinearLayout>
 
 
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/Tcard"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:backgroundTint="#FAFAFA"
+        </RelativeLayout>
 
-            >
+
+
+
 
             <LinearLayout
+
                 android:id="@+id/Lin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recy2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/child_lend1"
 
-                    <androidx.appcompat.widget.AppCompatCheckedTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lending"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:paddingStart="13sp"
+                    >
 
-                        app:layout_constraintBottom_toBottomOf="@id/Lin"
-
-                        app:layout_constraintStart_toStartOf="parent"
-
-                        tools:ignore="NotSibling,RtlSymmetry" />
-                    <androidx.appcompat.widget.AppCompatCheckedTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lending"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:paddingStart="13sp"
-                        android:paddingTop="18dp"
-
-                        app:layout_constraintBottom_toBottomOf="@id/Lin"
-
-                        app:layout_constraintStart_toStartOf="parent"
-
-                        tools:ignore="NotSibling,RtlSymmetry" />
-                    <androidx.appcompat.widget.AppCompatCheckedTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lending"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:paddingStart="13sp"
-                        android:paddingTop="10dp"
-
-                        app:layout_constraintBottom_toBottomOf="@id/Lin"
-
-                        app:layout_constraintEnd_toEndOf="parent"
-
-                        tools:ignore="NotSibling,RtlSymmetry" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
 
 
-        </androidx.cardview.widget.CardView>
+
+
     </LinearLayout>
 
-</LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B3F1EB"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/doc1"
+                android:text="Total"
+                android:textSize="20sp"
+                android:textColor="@color/lend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9sp"
+                android:layout_marginVertical="8dp"
+
+                />
+
+
+                <TextView
+                    android:id="@+id/balance2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginStart="243dp"
+                    android:layout_marginVertical="10dp"
+                    android:text="Document"
+                    android:textColor="@color/lend"
+                    android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+

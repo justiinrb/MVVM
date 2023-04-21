@@ -3,8 +3,6 @@ package com.jusdev.mvvm.ui.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
@@ -12,13 +10,11 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.jusdev.mvvm.R
 
-import com.jusdev.mvvm.databinding.ActivityMainBinding
 import com.jusdev.mvvm.ui.model.Posts
-import com.jusdev.mvvm.ui.model.ResponseLogin
+import com.jusdev.mvvm.ui.model.Login.ResponseLogin
 import com.jusdev.mvvm.ui.repository.Repository
 import com.jusdev.mvvm.ui.viewmodel.MainViewModel
 import com.jusdev.mvvm.ui.viewmodelfactory.MainViewModelFactory
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -70,7 +66,8 @@ class MainActivity : AppCompatActivity() {
             }catch (e :Exception){
                 println("result-error: " + e.message)
             }
-        })
+        }
+        )
 
     }
 }

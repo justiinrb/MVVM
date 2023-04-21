@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import com.jusdev.mvvm.ui.model.ResponseLogin
+
 import com.jusdev.mvvm.ui.viewmodel.MainViewModel
 
 class UtilsResponse {

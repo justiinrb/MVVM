@@ -37,5 +37,7 @@
     <string name="title_activity_receipt">ReceiptAct</string>
     <string name="title_activity_lending">LendingActivity</string>
     <string name="lending">Lending</string>
+    <string name="TOTAL" />
+    <string name="total">TOTAL</string>
 
 </resources>

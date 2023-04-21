@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.jusdev.mvvm.ui.model.Posts
-import com.jusdev.mvvm.ui.model.ResponseLogin
+
 import com.jusdev.mvvm.ui.repository.Repository
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody

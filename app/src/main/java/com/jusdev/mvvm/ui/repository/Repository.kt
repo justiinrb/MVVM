@@ -1,7 +1,7 @@
 package com.jusdev.mvvm.ui.repository
 
 import com.jusdev.mvvm.ui.model.Posts
-import com.jusdev.mvvm.ui.model.ResponseLogin
+
 import com.jusdev.mvvm.ui.network.RetrofitInstance
 import retrofit2.Response
 import com.jusdev.mvvm.ui.network.RetrofitInstance.api

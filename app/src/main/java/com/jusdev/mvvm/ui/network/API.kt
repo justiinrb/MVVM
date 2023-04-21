@@ -1,7 +1,7 @@
 package com.jusdev.mvvm.ui.network
 
 import com.jusdev.mvvm.ui.model.Posts
-import com.jusdev.mvvm.ui.model.ResponseLogin
+import com.jusdev.mvvm.ui.model.Login.ResponseLogin
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Field

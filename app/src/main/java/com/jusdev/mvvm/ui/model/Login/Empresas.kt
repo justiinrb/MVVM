@@ -1,4 +1,4 @@
-package com.jusdev.mvvm.ui.model
+package com.jusdev.mvvm.ui.model.Login
 
 data class Empresas(
 
