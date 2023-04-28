@@ -18,40 +18,29 @@ import com.jusdev.mvvm.ui.repository.RepositoryLending
 import com.jusdev.mvvm.ui.viewmodel.LendingViewModel
 import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
 
-class LendingActivity : AppCompatActivity() {
-
-
+ class LendingActivity : AppCompatActivity() {
     private lateinit var viewmodel: LendingViewModel
     private lateinit var binding: ActivityLendingBinding
-    private lateinit var recyclerView : RecyclerView
-    private lateinit var recc : RecyclerView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var recc: RecyclerView
     private lateinit var adapter: AdapterRecy
     private var datalis = mutableListOf<Lending>()
-    private lateinit var adapter2 : Adapter_Operaciones
-    private var datalis2 = mutableListOf<Operacione>()
-    var layautmanayer :LinearLayoutManager? = null
+    var layautmanayer: LinearLayoutManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityLendingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = AdapterRecy(this,datalis)
-        //adapter2 = Adapter_Operaciones(this,datalis2)
-
+        adapter = AdapterRecy(this, datalis)
         recyclerView = findViewById(R.id.recy)
-        //recyclerView = findViewById(R.id.recy2)
-
-
         recyclerView.adapter = adapter
-        //recyclerView.adapter = adapter2
-
         layautmanayer = LinearLayoutManager(this)
         recyclerView!!.layoutManager = layautmanayer
 
         other()
+
         val repository = RepositoryLending()
         val viewModelFactory = LendingVIewModelFactory(repository)
         viewmodel = ViewModelProvider(this, viewModelFactory).get(LendingViewModel::class.java)
@@ -75,15 +64,10 @@ class LendingActivity : AppCompatActivity() {
                 JsonParser.parseString(
                     response.body()
                         ?.string(), // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
-
-
                 )
             )
             //  Log.d("Pretty Printed JSON :", prettyJson)
-
-            println(response.toString()+"println")
-
-
+            println(response.toString() + "println")
             try {
                 val gson = Gson()
                 val myClass = gson.fromJson(prettyJson, Editjson::class.java)
@@ -91,51 +75,19 @@ class LendingActivity : AppCompatActivity() {
 
                 var listaempresa = myClass?.content?.lending
                 recyclerView.adapter = AdapterRecy(this, listaempresa!!)
+                // println("result: " + myClass?.content?.empresas)
 
-
-
-               // println("result: " + myClass?.content?.empresas)
-
-                if(response.isSuccessful){
-                    val list:List<Lending> = listaempresa
+                if (response.isSuccessful) {
+                    val list: List<Lending> = listaempresa
                     datalis.clear()
                     datalis.addAll(list)
                     adapter.notifyDataSetChanged()
-
                 }
-
-                /*var myClass1 = gson?.fromJson(prettyJson, Lending::class.java)
-                var listoperacio = myClass1?.operaciones
-                recyclerView.adapter = Adapter_Operaciones(this, listoperacio!!)
-
-                if(response.isSuccessful){
-                    val list:List<Operacione> = listoperacio
-                    datalis2.clear()
-                    datalis2.addAll(list)
-                    adapter2.notifyDataSetChanged()
-
-                }*/
-
-
-
-
-
-
-
-
             } catch (e: Exception) {
                 println("re-error: " + e.message)
             }
-
-
-
-
-
         })
-
     }
-
-
 
     private fun other() {
         binding.custbar.ivBack.setOnClickListener {
@@ -145,7 +97,7 @@ class LendingActivity : AppCompatActivity() {
     }
 
 
-}
+ }
 
 
 

@@ -11,5 +11,7 @@ data class Content_lend(
     @SerializedName("lending")
     val lending: List<Lending>,
     @SerializedName("usuarioid")
-    val usuarioid: String
+    val usuarioid: String,
+
+
 )

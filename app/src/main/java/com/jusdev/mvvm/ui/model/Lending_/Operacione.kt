@@ -9,5 +9,7 @@ data class Operacione(
     @SerializedName("DOCUMENTO")
     val DOCUMENTO: String,
     @SerializedName("FECHA")
-    val FECHA: String
+    val FECHA: String,
+
+
 )

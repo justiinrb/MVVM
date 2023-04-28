@@ -15,8 +15,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Object"
+            android:exported="false"
+            android:label="@string/title_activity_object"
+            android:theme="@style/Theme.Mvvm.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.ui.LendingActivity"
-
             android:exported="false"
             android:label="@string/title_activity_lending"
             android:theme="@style/Theme.Mvvm.NoActionBar">

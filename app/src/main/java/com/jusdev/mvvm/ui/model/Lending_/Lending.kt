@@ -9,5 +9,7 @@ data class Lending(
     @SerializedName("nombre")
     val nombre: String,
     @SerializedName("operaciones")
-    val operaciones: List<Operacione>
+    val operaciones: List<Operacione>,
+
+    var visibility: Boolean = false
 )

@@ -5,61 +5,63 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jusdev.mvvm.R
 
 
-class AdapterRecy(var context: Context, var contenlendX: List<Lending>) :
-    RecyclerView.Adapter<BaseViewHol<*>>() {
+
+class AdapterRecy (var context: Context, var contenlendX: List<Lending>):RecyclerView.Adapter<AdapterRecy.Viewhold>(){
 
 
-    /*fun empresa (id : List<Empresa_lend>, nombre : List<Empresa_lend>, context: Context){
-        this.contenlendX = id
-        this.contenlendX = nombre
-        this.context = context
-    }*/
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHol<*> {
-
-        return Adap(LayoutInflater.from(context).inflate(R.layout.fragment_lend1, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewhold {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_lend1,parent,false)
+        return Viewhold(itemView)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHol<*>, position: Int) {
-        when (holder) {
-            is Adap -> holder.bind(contenlendX[position], position)
-            else -> IllegalArgumentException("no funciona ")
+    override fun onBindViewHolder(holder: Viewhold, position: Int) {
+        val currentItem = contenlendX[position]
+        holder.nombre.text = currentItem.nombre
 
-        }
+        holder.childrecy.setHasFixedSize(true)
+        holder.childrecy.layoutManager = GridLayoutManager(holder.itemView.context,1)
 
+        val adapter = Adapter_Operaciones(currentItem.operaciones)
+        holder.childrecy.adapter = adapter
 
-    }
+        val isvisible : Boolean = currentItem.visibility
 
-    override fun getItemCount(): Int = contenlendX.size
+        holder.expand.visibility = if (isvisible) View.VISIBLE else View.GONE
 
-    inner class Adap(itemView: View) : BaseViewHol<Lending>(itemView) {
-        override fun bind(item: Lending, position: Int) {
+        holder.butt.setOnClickListener {
 
-            lateinit var adapter: Adapter_Operaciones
+            currentItem.visibility = !currentItem.visibility
 
-            val x: TextView
-            x = itemView.findViewById(R.id.titleTv)
-            x.text = item.nombre
-
-            var layautmanayer: LinearLayoutManager? = null
-            val r: RecyclerView
-            r = itemView.findViewById(R.id.recy2)
-            layautmanayer = LinearLayoutManager(context)
-            r.layoutManager = layautmanayer
-            adapter = Adapter_Operaciones(context, item.operaciones)
-            r.adapter = adapter
-            println(item.operaciones)
+            notifyItemChanged(position)
         }
 
     }
+
+    override fun getItemCount() = contenlendX.size
+
+    inner class Viewhold(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+
+        val nombre : TextView = itemView.findViewById(R.id.titleTv)
+        val childrecy :RecyclerView = itemView.findViewById(R.id.recy2)
+
+        val expand :LinearLayout = itemView.findViewById(R.id.expandle)
+        val butt :AppCompatImageView = itemView.findViewById(R.id.ivexpand)
+
+
+    }
+
 }
+
 
 
 
