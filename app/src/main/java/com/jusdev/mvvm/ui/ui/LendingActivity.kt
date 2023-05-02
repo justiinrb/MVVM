@@ -3,7 +3,12 @@ package com.jusdev.mvvm.ui.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.View.OnClickListener
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,12 +22,14 @@ import com.jusdev.mvvm.ui.model.Lending_.*
 import com.jusdev.mvvm.ui.repository.RepositoryLending
 import com.jusdev.mvvm.ui.viewmodel.LendingViewModel
 import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
+import org.w3c.dom.Document
 
- class LendingActivity : AppCompatActivity() {
+class LendingActivity : AppCompatActivity(),Adapter_Operaciones.OnclickListener{
+
+
     private lateinit var viewmodel: LendingViewModel
     private lateinit var binding: ActivityLendingBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var recc: RecyclerView
     private lateinit var adapter: AdapterRecy
     private var datalis = mutableListOf<Lending>()
     var layautmanayer: LinearLayoutManager? = null
@@ -33,7 +40,7 @@ import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
         binding = ActivityLendingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = AdapterRecy(this, datalis)
+        adapter = AdapterRecy(this, datalis,this)
         recyclerView = findViewById(R.id.recy)
         recyclerView.adapter = adapter
         layautmanayer = LinearLayoutManager(this)
@@ -74,7 +81,7 @@ import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
                 //val _myClass: ResponseLogin = Gson().fromJson(responseBody, ResponseLogin::class.java)
 
                 var listaempresa = myClass?.content?.lending
-                recyclerView.adapter = AdapterRecy(this, listaempresa!!)
+                recyclerView.adapter = AdapterRecy(this, listaempresa!!,this)
                 // println("result: " + myClass?.content?.empresas)
 
                 if (response.isSuccessful) {
@@ -87,9 +94,37 @@ import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
                 println("re-error: " + e.message)
             }
         })
+/*
+        val button : TextView = findViewById(R.id.titleTv)
+        button.setOnClickListener {
+            startActivity(Intent(this,Object::class.java).apply {
+                putExtra("dataObj","")
+            })
+        }
+
+    val intent = Intent(applicationContext,Object::class.java)
+            val lend = Lending ("idcliente","nombre", arrayListOf(Operacione("BALANCE","DOCUMENTO","FECHA")))
+            intent.putExtra("Lending",lend)
+            startActivity(intent)
+
+ */
+
     }
 
-    private fun other() {
+     override fun OnClick(item: Operacione,lending:Lending) {
+         println("Clickk " + item.BALANCE)
+         val intent = Intent(this,Activity_data::class.java)
+         intent.putExtra("Document",item.DOCUMENTO)
+         intent.putExtra("Fecha",item.FECHA)
+         intent.putExtra("Balance",item.BALANCE)
+         intent.putExtra("NameGrup",lending.nombre)
+
+         startActivity(intent)
+
+     }
+
+
+     private fun other() {
         binding.custbar.ivBack.setOnClickListener {
             val editProfileIntent = Intent(this, Idn::class.java)
             startActivity(editProfileIntent)
@@ -98,6 +133,8 @@ import com.jusdev.mvvm.ui.viewmodelfactory.LendingVIewModelFactory
 
 
  }
+
+
 
 
 

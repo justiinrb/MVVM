@@ -4,11 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/lou"
     android:orientation="vertical"
-    tools:context=".FirstLendFragment">
-
-
+    tools:context=".ui.ui.Activity_data">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
 
 
-            android:id="@+id/constraintLayout"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +27,7 @@
 
 
             <TextView
-                android:id="@+id/titleTv"
+                android:id="@+id/nameGrup"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="LMG GROUP,INC."
@@ -44,7 +41,7 @@
                 tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivexpand"
+
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -62,14 +59,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/expandle"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:visibility="visible"
         >
         <RelativeLayout
-            android:id="@+id/Pcard"
+
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@color/lend"
@@ -82,7 +79,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/detail"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -96,7 +93,7 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/balance"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="230dp"
@@ -120,57 +117,110 @@
 
 
 
-            <LinearLayout
+        <LinearLayout
 
-                android:id="@+id/Lin"
+            android:id="@+id/Linssss"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-
-                    >
-
-                </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="55dp">
 
 
                 <LinearLayout
-                    android:id="@+id/linear"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#B3F1EB"
-                    android:orientation="horizontal">
-                    <TextView
 
-                        android:text="Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#D1D5D5"
+                    tools:ignore="Suspicious0dp">
+
+                    <TextView
+                        android:id="@+id/DocData1"
+                        android:text="Document"
                         android:textSize="20sp"
                         android:textColor="@color/lend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="9sp"
-                        android:layout_marginVertical="8dp"
+                        android:layout_marginVertical="0dp"
+
 
                         />
 
+                    <TextView
+
+                        android:id="@+id/fechaData1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9sp"
+                        android:layout_marginVertical="0dp"
+                        android:text="Document"
+                        android:textColor="@color/lend"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/chilData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/balance2"
+                        android:id="@+id/balanceData1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:layout_marginStart="243dp"
+                        android:layout_marginStart="275dp"
                         android:layout_marginVertical="10dp"
                         android:text="Document"
                         android:textColor="@color/lend"
                         android:textSize="20sp" />
 
 
+
                 </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#B3F1EB"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:text="Total"
+                    android:textSize="20sp"
+                    android:textColor="@color/lend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9sp"
+                    android:layout_marginVertical="8dp"
+
+                    />
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginStart="243dp"
+                    android:layout_marginVertical="10dp"
+                    android:text="Document"
+                    android:textColor="@color/lend"
+                    android:textSize="20sp" />
+
+
             </LinearLayout>
+        </LinearLayout>
 
 
 
@@ -186,5 +236,6 @@
 
 
 
-    </LinearLayout>
 
+
+</LinearLayout>

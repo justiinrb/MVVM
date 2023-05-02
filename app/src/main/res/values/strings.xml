@@ -39,6 +39,7 @@
     <string name="lending">Lending</string>
     <string name="TOTAL" />
     <string name="total">TOTAL</string>
-    <string name="title_activity_object">Object</string>
+    <string name="title_object">Object</string>
+    <string name="title_activity_data">Activity_data</string>
 
 </resources>
