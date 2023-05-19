@@ -17,6 +17,10 @@ class Doc : Fragment(R.layout.doc) {
 
     val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +30,9 @@ class Doc : Fragment(R.layout.doc) {
         // As the binding class will change, binding inflate method will also change from fragment to fragment
         _binding = DocBinding.inflate(inflater, container, false)
         setUptabs()
+        OnPause()
         return binding.root
+
     }
 
     private fun setUptabs() {
@@ -37,10 +43,20 @@ class Doc : Fragment(R.layout.doc) {
         binding.viewpa.adapter = adapter
         binding.tab.setupWithViewPager(binding.viewpa)
 
+        println("ADAPTTER" +adapter)
+
         binding.tab.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_broken_image_24)
         binding.tab.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_rotate_right_24)
         binding.tab.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_receipt_24)
 
+        println("TABPP"+adapter?.getItem(position = 0))
+
     }
+    private fun OnPause(){
+        super.onPause()
+        setUptabs()
+
+    }
+
 }
 

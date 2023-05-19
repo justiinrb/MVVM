@@ -1,6 +1,8 @@
 package com.jusdev.mvvm.ui.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +24,7 @@ import com.jusdev.mvvm.ui.repository.RepositoryLogin
 import com.jusdev.mvvm.ui.viewmodel.LoginViewModel
 import com.jusdev.mvvm.ui.viewmodelfactory.LoginViewModelFactory
 
+
 class LoginActivity : AppCompatActivity() {
     private var progressBar: ProgressBar? = null
     private var i = 0
@@ -35,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_login)
         _youremail = findViewById(R.id.youremail)
         _yourpassword = findViewById(R.id.yourpassword)
@@ -42,6 +46,19 @@ class LoginActivity : AppCompatActivity() {
         VModel = LoginViewModel(RepositoryLogin())
         progressBar = findViewById<ProgressBar>(R.id.progress) as ProgressBar
 
+
+        val sharepreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
+        val getusername = sharepreference.getString("USERNAME","")
+        val getpasword = sharepreference.getString("PASSWORD","")
+
+        if(getusername != null && getpasword!=null ){
+            val intent = Intent(this, Idn::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+        }else{
+
+        }
 
         button.setOnClickListener {
             progressBar!!.visibility = View.VISIBLE
@@ -87,11 +104,15 @@ class LoginActivity : AppCompatActivity() {
                         var gson = Gson()
                         var myClass = gson?.fromJson(prettyJson, ResponseLogin::class.java)
                         //val _myClass: ResponseLogin = Gson().fromJson(responseBody, ResponseLogin::class.java)
+
+                        println("ERROR " +myClass?.error)
                         if (myClass?.error == true) {
-                            println("hay un error")
+                            println("hay un error"+myClass?.error)
                         } else {
                             val intent = Intent(this, Idn::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(intent)
+                            finish()
 
 
                             println("Succeful")
@@ -100,8 +121,14 @@ class LoginActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         println("result-error: " + e.message)
                     }
+                    val username = _youremail.text.toString()
+                    val pasword = _yourpassword.text.toString()
 
 
+                    val editor = sharepreference.edit()
+                    editor.putString("USERNAME",username)
+                    editor.putString("PASSWORD",pasword)
+                    editor.apply()
                 })
             }
         }
@@ -109,18 +136,19 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    fun validate(): Boolean {
-        if (_youremail.toString().length == 0) {
+    private fun validate(): Boolean {
+        if (_youremail.text.toString().isEmpty()) {
             Toast.makeText(this, "ingrese el usuario", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (_yourpassword.toString().length == 0) {
+        if (_yourpassword.text.toString().isEmpty()) {
             Toast.makeText(this, "ingress la contraseña", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
 
     }
+
 
 
 }

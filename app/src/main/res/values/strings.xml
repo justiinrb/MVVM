@@ -41,5 +41,12 @@
     <string name="total">TOTAL</string>
     <string name="title_object">Object</string>
     <string name="title_activity_data">Activity_data</string>
+    <string name="title_activity_fragment_to_fragment">FragmentToFragment</string>
+    <string name="title_activity_fragment3">ActivityFragment3</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_main_activity2f">MainActivity2f</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

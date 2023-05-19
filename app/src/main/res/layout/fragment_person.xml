@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#070739"
+
     tools:context=".Home">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -93,32 +93,7 @@
                     android:background="#070739"
                     >
 
-                    <LinearLayout
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="55dp"
-                        >
-                        <TextView
-
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:text="@string/transaction"
-                            android:textColor="@color/white"
-                            android:textSize="27sp" />
-
-                        <Button
-                            android:id="@+id/forgt"
-                            android:layout_weight="0"
-                            android:layout_width="50dp"
-                            android:background="@drawable/ic_arrow_righ"
-                            android:layout_height="50dp"
-                            android:textAllCaps="false"
-                            />
-                    </LinearLayout>
                     <androidx.cardview.widget.CardView
                         android:layout_width="370dp"
                         android:layout_height="478dp"
