@@ -9,7 +9,7 @@ import com.jusdev.mvvm.ui.const.AppConstant
 
 
 class AppPermissions {
-
+/*
     fun isLocation(context : Context):Boolean{
         return ContextCompat.checkSelfPermission(
             context,
@@ -30,5 +30,5 @@ class AppPermissions {
         )
 
     }
-
+*/
 }

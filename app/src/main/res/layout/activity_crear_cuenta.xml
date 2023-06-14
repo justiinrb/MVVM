@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CrearCuentaActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Account"
+        android:textSize="35sp"
+        android:layout_marginStart="95dp"
+        android:textStyle="italic"
+        android:textColor="#171717"
+        >
+    </TextView>
+
+
+    <EditText
+        android:id="@+id/TextUser"
+        android:layout_width="match_parent"
+        android:maxLines="1"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:hint="Nombre de Usuario"
+        android:ems="10"
+        android:background="@drawable/imput_big"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+    <EditText
+        android:id="@+id/NewEmail"
+        android:layout_width="match_parent"
+        android:maxLines="1"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/enter_your_username_or_email"
+        android:ems="10"
+        android:background="@drawable/imput_big"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+    <EditText
+        android:id="@+id/Pass1"
+        android:layout_width="match_parent"
+        android:maxLines="1"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:background="@drawable/imput_big"
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+    <EditText
+        android:id="@+id/Pass2"
+        android:layout_width="match_parent"
+        android:maxLines="1"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+
+        android:hint="Confirmar Password"
+        android:ems="10"
+        android:background="@drawable/imput_big"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnAccount"
+        android:layout_width="190dp"
+        android:textColor="#EFEFEF"
+        android:backgroundTint="@color/black"
+        android:text="Create Account"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="193dp"
+        android:layout_marginTop="15dp"
+        >
+
+    </Button>
+</LinearLayout>

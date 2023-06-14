@@ -1,8 +1,6 @@
 package com.jusdev.mvvm.ui.ui
 
-import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,9 +12,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
+import com.jusdev.mvvm.CrearCuentaActivity
+import com.jusdev.mvvm.ForgetPassword
 import com.jusdev.mvvm.R
 import com.jusdev.mvvm.ui.model.Login.PostLogin
 import com.jusdev.mvvm.ui.model.Login.ResponseLogin
@@ -26,6 +29,10 @@ import com.jusdev.mvvm.ui.viewmodelfactory.LoginViewModelFactory
 
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var authStateListener: FirebaseAuth.AuthStateListener
+
     private var progressBar: ProgressBar? = null
     private var i = 0
     private var txtView: TextView? = null
@@ -33,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var VModel: LoginViewModel
     lateinit var _youremail: EditText
     lateinit var _yourpassword: EditText
-    lateinit var _logn: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,30 +48,43 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         _youremail = findViewById(R.id.youremail)
         _yourpassword = findViewById(R.id.yourpassword)
+        val newAccount : TextView = findViewById(R.id.newAccount)
         val button = findViewById<Button>(R.id.logn)
+        val forget = findViewById<Button>(R.id.forgt)
         VModel = LoginViewModel(RepositoryLogin())
         progressBar = findViewById<ProgressBar>(R.id.progress) as ProgressBar
+        firebaseAuth = Firebase.auth
 
-
+/*
         val sharepreference = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        val getusername = sharepreference.getString("USERNAME","")
-        val getpasword = sharepreference.getString("PASSWORD","")
+        val getusername = sharepreference.getString("USERNAME", "")
+        val getpasword = sharepreference.getString("PASSWORD", "")
 
-        if(getusername != null && getpasword!=null ){
+        if (getusername != null && getpasword != null) {
             val intent = Intent(this, Idn::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            finish()
-        }else{
 
+        } else {
+
+        }
+*/
+        newAccount.setOnClickListener {
+            val i = Intent(this,CrearCuentaActivity::class.java)
+            startActivity(i)
+        }
+        forget.setOnClickListener {
+            val pass = Intent(this, ForgetPassword::class.java)
+            startActivity(pass)
         }
 
         button.setOnClickListener {
-            progressBar!!.visibility = View.VISIBLE
 
 
             println("validacion" + validate())
             if (validate()) {
+                progressBar!!.visibility = View.VISIBLE
+                singIn(_youremail.text.toString(),_yourpassword.text.toString())
                 val repositoryLogin = RepositoryLogin()
                 val viewLoginFactory = LoginViewModelFactory(repositoryLogin)
                 VModel = ViewModelProvider(this, viewLoginFactory).get(LoginViewModel::class.java)
@@ -105,9 +124,9 @@ class LoginActivity : AppCompatActivity() {
                         var myClass = gson?.fromJson(prettyJson, ResponseLogin::class.java)
                         //val _myClass: ResponseLogin = Gson().fromJson(responseBody, ResponseLogin::class.java)
 
-                        println("ERROR " +myClass?.error)
+                        println("ERROR " + myClass?.error)
                         if (myClass?.error == true) {
-                            println("hay un error"+myClass?.error)
+                            println("hay un error" + myClass?.error)
                         } else {
                             val intent = Intent(this, Idn::class.java)
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -121,14 +140,16 @@ class LoginActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         println("result-error: " + e.message)
                     }
+                  /*
                     val username = _youremail.text.toString()
                     val pasword = _yourpassword.text.toString()
 
 
                     val editor = sharepreference.edit()
-                    editor.putString("USERNAME",username)
-                    editor.putString("PASSWORD",pasword)
+                    editor.putString("USERNAME", username)
+                    editor.putString("PASSWORD", pasword)
                     editor.apply()
+                */
                 })
             }
         }
@@ -149,7 +170,25 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    private fun singIn(email:String,password :String) {
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this){task->
+                if (task.isSuccessful){
+                    val user =firebaseAuth.currentUser
+                    Toast.makeText(baseContext,user?.uid.toString(),Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Idn::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    finish()
 
+                }else{
+                    Toast.makeText(baseContext,"Error de Email y/o password ",Toast.LENGTH_SHORT).show()
+
+                }
+
+
+        }
+    }
 
 }
 

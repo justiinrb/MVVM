@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "607650221450",
+    "project_id": "mvvm-dd8a4",
+    "storage_bucket": "mvvm-dd8a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607650221450:android:0fa8caff1db38416014c73",
+        "android_client_info": {
+          "package_name": "com.jusdev.mvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607650221450-nv4viltav808ovbm5jeum43ro157i6av.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jusdev.mvvm",
+            "certificate_hash": "664637f46f95a67666c6127a70f9809d331c08ad"
+          }
+        },
+        {
+          "client_id": "607650221450-prdhpa3useq91sbmjvb95l30auelsro3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm3CgbpWkOLl8gJ-rWuRIwByvm72VuxW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607650221450-prdhpa3useq91sbmjvb95l30auelsro3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

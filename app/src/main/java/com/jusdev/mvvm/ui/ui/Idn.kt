@@ -1,10 +1,12 @@
 package com.jusdev.mvvm.ui.ui
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.clearFragmentResult
 import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -18,7 +20,7 @@ import com.jusdev.mvvm.ui.ui.documents.Doc
 class Idn : AppCompatActivity() {
 
     private lateinit var binding: ActivityIdnBinding
-    private lateinit var permission :AppPermissions
+    // private lateinit var permission :AppPermissions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,19 +29,21 @@ class Idn : AppCompatActivity() {
         Rplace()
         replaceFragment(Home())
 
+    /*
         permission = AppPermissions()
-
         if (permission.isLocation(this)){
             println("Allowed")
-
         }else{
             permission.RequestPemision(this)
-            println("denied")
-        }
-
+            println("denied")}
+        */
     }
-    private fun Rplace(){
+
+
+    private fun Rplace() {
+
         binding.bottomNavigationView.setOnItemSelectedListener {
+            it.isChecked = true
             println("bottmmm" + it.itemId)
 
             when (it.itemId) {
@@ -49,7 +53,7 @@ class Idn : AppCompatActivity() {
                 R.id.up -> replaceFragment(Backup())
                 R.id.person -> replaceFragment(Person())
 
-                else -> throw IllegalArgumentException("se vuelve a cargar")
+
             }
             true
         }
@@ -61,6 +65,7 @@ class Idn : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
+
         fragmentTransaction.commit()
 
 
